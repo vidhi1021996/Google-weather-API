@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Weather Forecast</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="weatherapi.js"></script>
+    <script type="text/javascript" src="NewsAPI.js"></script>
+
+   <style>
+   body{
+background-color: #87CEFA;   
+   }
+      #map {
+        height: 550px;  
+        width: 100%; 
+		
+       }
+	   #sea{
+		margin-top:10px;
+		margin-left:370px; 
+	}
+    </style>
+
+
+<script>
+
+function initMap() {
+  var loc = {lat: -25.344, lng: 131.036};
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: loc});
+  var marker = new google.maps.Marker({position: loc, map: map});
+}
+function initMap2(lat,lng) {
+  var loc = {lat: lat, lng: lng};
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: loc});
+  var marker = new google.maps.Marker({position: loc, map: map});
+}
+window.onload = function() {
+  document.getElementById("city").focus();
+};
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIqDWttOJg5ePsBSvTDMrqll_7X1MGhBw&callback=initMap">
+    </script>
+
+   
+</head>
+
+    <style>
+       
+    .jumbotron
+        {
+			background-color: white;
+			background-size: cover;
+			height: 650px;
+			width: 100%;
+			border-style:solid;	
+			border-width: 5px;
+			border-color: blue;
+        }
+	
+       
+
+    </style>
+
+<nav class="navbar" >
+  <div class="container-fluid" >
+    <div class="navbar-form navbar-left" id="sea" >
+      <div class="form-group">
+	   <input type="text" name="city" id="city" style="border-color: black" class="form-control" placeholder="Enter City">
+      </div>
+      <button type="submit" class="btn btn-default"   style="color: black; border-color: black" onclick="getWeather(document.getElementById('city'))">Search</button>
+	  
+    </div>
+  </div>
+</nav>
+
+    <div class="container-fluid">
+  <div class="row-fluid">
+     
+    <div class="span2">
+       
+      <!--Sidebar content-->
+   
+     
+    <div class="span10">
+      <!--Body content-->
+   
+    </div>
+  </div>
+</div>
+   
+    <div class="col-md-3">
+        <div class="container-full-bg">  <!--  increased the jumbotron width -->
+        <div class="jumbotron ">
+            <div class="container">
+              
+                <img class="icon">
+				        <p class="currentCity">City: </p>
+				        <p class="country">Country: </p>
+			         	<p class="weather">Weather: </p>
+				        <p class="temp">Temperatue: </p>
+				        <p class="feels_like">Feels Like: </p>
+                <p class="pressure">Pressure: </p>
+                <p class="humidity">Humidity: </p>
+                <p class="wind">Wind: </p>
+                
+              <br><br><br><br>
+            </div>
+        </div>
+</div>
+    </div>
+       
+    <div class="col-md-9">
+        <div class="container-full-bg">  <!--  increased the jumbotron width -->
+        <div class="jumbotron ">
+            <div id="map">
+     <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var loc = {lat: -25.344, lng: 131.036};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: loc});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: loc, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbrGUvHqX5BCVdAMKXYTf4-pJ0rx8HIfQ&callback=initMap">
+    </script>
+
+              <br><br><br><br>
+            </div>
+        </div>
+</div>
+    </div>
+</div>
+
+</body>
+</html>
